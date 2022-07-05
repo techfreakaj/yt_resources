@@ -49,10 +49,8 @@ class Clock:
 
     def starttick(self, second_hand, minute_hand, hour_hand, printer):
         today = datetime.datetime.today()
-        second = today.second + \
-                 self.time_deltas[0] + today.microsecond * 1e-6
-        minute = today.minute + \
-                 self.time_deltas[1] + second / 60.
+        second = today.second + self.time_deltas[0] + today.microsecond * 1e-6
+        minute = today.minute + self.time_deltas[1] + second / 60.
         hour = (today.hour + self.time_deltas[2] + minute / 60) % 12
         second_hand.setheading(6 * second)
         minute_hand.setheading(6 * minute)
